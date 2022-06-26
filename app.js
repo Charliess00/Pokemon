@@ -5,17 +5,26 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/pokemon')
+var session = require("express-session")
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var pokemons = require('./routes/pokemons');
-
 var app = express();
+
+
+var MongoStore = require('connect-mongo')(session);
 
 // view engine setup
 app.engine('ejs',require('ejs-locals'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.use(session({
+  secret: "VinniIsHero",
+  cookie:{maxAge:60*1000},
+  store: new MongoStore({ mongooseConnection: mongoose.connection})
+}))
 
 app.use(logger('dev'));
 app.use(express.json());
