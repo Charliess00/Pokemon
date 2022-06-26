@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Pokemons = require("../models/pokemon").Pokemons
+var Pokemon = require("../models/pokemon").Pokemon
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
