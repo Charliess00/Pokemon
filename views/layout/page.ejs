@@ -18,21 +18,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+                <% menu.forEach(function(pokemon){ %>
                 <li class="nav-item">
-                    <a class="nav-link" href="/pokemons/pikachu">Пикачу</a>
+                <li><a class="nav-link" href="/pokemons/<%=pokemon.nick%>"><%=pokemon.title%></a></li>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/pokemons/bulbasaur">Бульбазавр</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/pokemons/charmander">Чармандер</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/pokemons/squirtle">Сквиртл</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/pokemons/eevee">Иви</a>
-                </li>
+                <% }) %>
                 <li class="nav-item" style="right:0px; position:absolute">
                     <a class="nav-link" style="color:green" href="/">Войти</a>
                 </li>
